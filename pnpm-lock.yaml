@@ -8,6 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@krizaka/app-client':
+        specifier: ^0.1.0
+        version: 0.1.0(react@19.3.1)
+      '@krizaka/app-desktop':
+        specifier: ^0.1.0
+        version: 0.1.0(react@19.3.1)
+      '@krizaka/i18n':
+        specifier: ^0.2.1
+        version: 0.2.3(react@19.3.1)(typescript@5.9.3)
+      '@krizaka/icons':
+        specifier: ^0.7.0
+        version: 0.7.0(react@19.3.1)
       '@krizaka/tailwind':
         specifier: ^3.46.0
         version: 3.46.0(@krizaka/tokens@3.46.0)(@krizaka/ui@3.46.0)(tailwindcss@4.3.3)
@@ -23,6 +35,9 @@ importers:
       '@tauri-apps/api':
         specifier: ^2.12.3
         version: 2.12.4
+      '@tauri-apps/plugin-http':
+        specifier: ^2.5.0
+        version: 2.8.3
       react:
         specifier: ^19.3.0
         version: 19.3.1
@@ -47,7 +62,7 @@ importers:
         version: 6.1.2(vite@8.3.5(jiti@2.7.0))
       jsdom:
         specifier: ^30.1.2
-        version: 30.1.3
+        version: 30.1.3(@noble/hashes@2.4.0)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -56,7 +71,7 @@ importers:
         version: 8.3.5(jiti@2.7.0)
       vitest:
         specifier: ^4.1.11
-        version: 4.1.12(jsdom@30.1.3)(vite@8.3.5(jiti@2.7.0))
+        version: 4.1.12(jsdom@30.1.3(@noble/hashes@2.4.0))(vite@8.3.5(jiti@2.7.0))
 
 packages:
 
@@ -148,6 +163,46 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
+  '@krizaka/app-client@0.1.0':
+    resolution: {integrity: sha512-Zuv+CX3iLJQs6375c3h9/OsykL2tGkMaiTp2WZ1lZlaAPUJrHLCBuGsHnbCnu+7baTBQtq+E8Tr7Vh/It8VK8Q==}
+    engines: {node: '>=22'}
+
+  '@krizaka/app-desktop@0.1.0':
+    resolution: {integrity: sha512-15jrWLV235dAI03puMmft1VUxqQmqrKX+EKpGP9GwiHWQYhR3Qo/0aqBgoXECFRtNdaJY9y6Im1DPzATg5Cq4A==}
+    engines: {node: '>=22'}
+
+  '@krizaka/discovery@0.1.0':
+    resolution: {integrity: sha512-45XrvMxxTdJQ6Oi+auQpegfYPBQsfFbMmTKpoQbIbNvQeyccrVgAjZv6Qfe5SOstXc+99oZDMcKtKig1OcgB6g==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      react: '>=18'
+    peerDependenciesMeta:
+      react:
+        optional: true
+
+  '@krizaka/i18n@0.2.3':
+    resolution: {integrity: sha512-dDuPtfvnHe3RMjK4P52JcV5FKgf9QgbkVNiAiSHRyUH+N6Wa+nSvARHlptX6cngmZH95/pKoUlszcNpMI//2ww==}
+    engines: {node: '>=22'}
+    hasBin: true
+    peerDependencies:
+      react: '>=18'
+      typescript: '>=5'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      typescript:
+        optional: true
+
+  '@krizaka/icons@0.7.0':
+    resolution: {integrity: sha512-wm25c4e3OZPsAdPM4vcnnHV20kFJNCEmkjdSh76QG3agVGGBBPsj2clKSgsfhSoyeK836X6LEx9BjpIibb4mBA==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      react: '>=18'
+      react-native-svg: '>=15'
+    peerDependenciesMeta:
+      react-native-svg:
+        optional: true
+
   '@krizaka/intl@0.2.1':
     resolution: {integrity: sha512-vZWoRmptN0/Ac1rUZ3BiOdXXGOkxBAq2yYDe9tMOpPNhi8kKP/L8NCptokshBjKPmEZxq9lJ55MoAabTL+WbBw==}
     engines: {node: '>=22'}
@@ -221,6 +276,14 @@ packages:
         optional: true
       tailwindcss:
         optional: true
+
+  '@noble/curves@2.4.0':
+    resolution: {integrity: sha512-P4/62zrgfH33CneE3Dn4WhJVA22YUU0eR51wKIan4NVRvwsA0YnPTwWGpNbpuacSujmSFLvyzpyuR30+fbq2Ew==}
+    engines: {node: '>= 20.19.0'}
+
+  '@noble/hashes@2.4.0':
+    resolution: {integrity: sha512-X5XaVWZIBCT7HHZGm5I7ZQXDwLG+bGXuSrMQAW+7Zvl87h1kmc1ZB1VSRJcpUfoUrGQp4Fkoxm5kZ+Ms+aW+eA==}
+    engines: {node: '>= 20.19.0'}
 
   '@oxc-project/types@0.155.0':
     resolution: {integrity: sha512-SeE8JPwW1xs1tHeNycjUtUBdhorRa8o4jlvjwk49R7/Z291i+4DQa7JJIgOm/TaYQZx+QrPQbVJ/9c8dMIZN8Q==}
@@ -1267,6 +1330,9 @@ packages:
     engines: {node: '>= 10'}
     hasBin: true
 
+  '@tauri-apps/plugin-http@2.8.3':
+    resolution: {integrity: sha512-MrgCnnxSnzxkMX+Tk1XXB8rSI9hfhUHQmtbn0EpflEDcSx04K1BDfrv51tcK27SCuU/B1j8sNHL0UZur/1iqKA==}
+
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
 
@@ -1968,7 +2034,9 @@ snapshots:
 
   '@csstools/css-tokenizer@4.0.2': {}
 
-  '@exodus/bytes@1.16.0': {}
+  '@exodus/bytes@1.16.0(@noble/hashes@2.4.0)':
+    optionalDependencies:
+      '@noble/hashes': 2.4.0
 
   '@floating-ui/core@1.8.0':
     dependencies:
@@ -2005,6 +2073,35 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
+
+  '@krizaka/app-client@0.1.0(react@19.3.1)':
+    dependencies:
+      '@krizaka/discovery': 0.1.0(react@19.3.1)
+    transitivePeerDependencies:
+      - react
+
+  '@krizaka/app-desktop@0.1.0(react@19.3.1)':
+    dependencies:
+      '@krizaka/app-client': 0.1.0(react@19.3.1)
+    transitivePeerDependencies:
+      - react
+
+  '@krizaka/discovery@0.1.0(react@19.3.1)':
+    dependencies:
+      '@noble/curves': 2.4.0
+    optionalDependencies:
+      react: 19.3.1
+
+  '@krizaka/i18n@0.2.3(react@19.3.1)(typescript@5.9.3)':
+    dependencies:
+      '@krizaka/intl': 0.2.1
+    optionalDependencies:
+      react: 19.3.1
+      typescript: 5.9.3
+
+  '@krizaka/icons@0.7.0(react@19.3.1)':
+    dependencies:
+      react: 19.3.1
 
   '@krizaka/intl@0.2.1': {}
 
@@ -2051,6 +2148,12 @@ snapshots:
       - '@types/react-dom'
       - octane
       - tailwind-merge
+
+  '@noble/curves@2.4.0':
+    dependencies:
+      '@noble/hashes': 2.4.0
+
+  '@noble/hashes@2.4.0': {}
 
   '@oxc-project/types@0.155.0': {}
 
@@ -3034,6 +3137,10 @@ snapshots:
       '@tauri-apps/cli-win32-ia32-msvc': 2.12.4
       '@tauri-apps/cli-win32-x64-msvc': 2.12.4
 
+  '@tauri-apps/plugin-http@2.8.3':
+    dependencies:
+      '@tauri-apps/api': 2.12.4
+
   '@types/chai@5.2.3':
     dependencies:
       '@types/deep-eql': 4.0.2
@@ -3134,10 +3241,10 @@ snapshots:
 
   csstype@3.2.3: {}
 
-  data-urls@8.0.0:
+  data-urls@8.0.0(@noble/hashes@2.4.0):
     dependencies:
       whatwg-mimetype: 5.0.0
-      whatwg-url: 17.3.0
+      whatwg-url: 17.3.0(@noble/hashes@2.4.0)
     transitivePeerDependencies:
       - '@noble/hashes'
 
@@ -3175,9 +3282,9 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  html-encoding-sniffer@7.0.0:
+  html-encoding-sniffer@7.0.0(@noble/hashes@2.4.0):
     dependencies:
-      '@exodus/bytes': 1.16.0
+      '@exodus/bytes': 1.16.0(@noble/hashes@2.4.0)
     transitivePeerDependencies:
       - '@noble/hashes'
 
@@ -3185,17 +3292,17 @@ snapshots:
 
   jiti@2.7.0: {}
 
-  jsdom@30.1.3:
+  jsdom@30.1.3(@noble/hashes@2.4.0):
     dependencies:
       '@asamuzakjp/css-color': 7.1.7
       '@asamuzakjp/dom-selector': 10.0.4
       '@bramus/specificity': 2.4.3
       '@csstools/css-syntax-patches-for-csstree': 1.1.15(css-tree@3.2.1)
-      '@exodus/bytes': 1.16.0
+      '@exodus/bytes': 1.16.0(@noble/hashes@2.4.0)
       css-tree: 3.2.1
-      data-urls: 8.0.0
+      data-urls: 8.0.0(@noble/hashes@2.4.0)
       decimal.js: 10.6.0
-      html-encoding-sniffer: 7.0.0
+      html-encoding-sniffer: 7.0.0(@noble/hashes@2.4.0)
       is-potential-custom-element-name: 1.0.1
       lru-cache: 11.5.3
       parse5: 8.0.1
@@ -3205,7 +3312,7 @@ snapshots:
       w3c-xmlserializer: 6.0.0
       webidl-conversions: 8.0.1
       whatwg-mimetype: 5.0.0
-      whatwg-url: 17.3.0
+      whatwg-url: 17.3.0(@noble/hashes@2.4.0)
       xml-name-validator: 5.0.0
     transitivePeerDependencies:
       - '@noble/hashes'
@@ -3552,7 +3659,7 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.7.0
 
-  vitest@4.1.12(jsdom@30.1.3)(vite@8.3.5(jiti@2.7.0)):
+  vitest@4.1.12(jsdom@30.1.3(@noble/hashes@2.4.0))(vite@8.3.5(jiti@2.7.0)):
     dependencies:
       '@vitest/expect': 4.1.12
       '@vitest/mocker': 4.1.12(vite@8.3.5(jiti@2.7.0))
@@ -3575,7 +3682,7 @@ snapshots:
       vite: 8.3.5(jiti@2.7.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      jsdom: 30.1.3
+      jsdom: 30.1.3(@noble/hashes@2.4.0)
     transitivePeerDependencies:
       - msw
 
@@ -3587,9 +3694,9 @@ snapshots:
 
   whatwg-mimetype@5.0.0: {}
 
-  whatwg-url@17.3.0:
+  whatwg-url@17.3.0(@noble/hashes@2.4.0):
     dependencies:
-      '@exodus/bytes': 1.16.0
+      '@exodus/bytes': 1.16.0(@noble/hashes@2.4.0)
       tr46: 7.0.0
       webidl-conversions: 8.0.1
     transitivePeerDependencies:

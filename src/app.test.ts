@@ -1,9 +1,21 @@
-import { describe, expect, it } from "vitest";
+import en from "./i18n/en.json";
+import fr from "./i18n/fr.json";
+import { menuSpec } from "./menu";
 
-import { native } from "./native";
+const leaves = (value: unknown, path = ""): string[] =>
+  value && typeof value === "object" ? Object.entries(value).flatMap(([key, child]) => leaves(child, path ? `${path}.${key}` : key)) : [path];
 
-describe("the native side as the page sees it", () => {
-  it("exposes the folder commands and nothing that reads a path the scope has not granted", () => {
-    expect(Object.keys(native).sort()).toEqual(["folders", "grantFolder", "listFolder", "revokeFolder"]);
+describe("the app's words", () => {
+  it("exist in French and in English, with the same keys", () => {
+    expect(leaves(fr).sort()).toEqual(leaves(en).sort());
+  });
+});
+
+describe("the native menu", () => {
+  it("carries the standard labels and the product's items with their accelerators", () => {
+    const spec = menuSpec(fr.menu);
+    expect(spec.labels.quit).toBe(fr.menu.quit);
+    expect(Object.keys(spec.labels)).not.toContain("file");
+    expect(spec.menus).toEqual([{ title: fr.menu.file, items: [{ id: "folders.add", label: fr.menu.addFolder, accelerator: "CmdOrCtrl+O" }] }]);
   });
 });

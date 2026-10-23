@@ -5,11 +5,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import { App } from "./App";
+import { currentLocale, I18nProvider } from "./i18n";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider defaultMode="system">
-      <App />
+      <I18nProvider locale={currentLocale()}>
+        <App />
+      </I18nProvider>
     </ThemeProvider>
   </StrictMode>,
 );
