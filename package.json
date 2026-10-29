@@ -15,7 +15,8 @@
     "tauri": "tauri",
     "build:app": "tauri build --bundles dmg --target aarch64-apple-darwin",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mjs,cjs,json,css}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mjs,cjs,json,css}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mjs,cjs,json,css}\"",
+    "lint": "pnpm run format:check"
   },
   "dependencies": {
     "@krizaka/app-client": "^0.1.0",
