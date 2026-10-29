@@ -1,0 +1,9 @@
+{
+  "kind": "ts-monorepo",
+  "allow": [
+    { "path": "index.html", "why": "Vite entry of the Tauri front end" },
+    { "path": "vite.config.ts", "why": "Vite configuration of the Tauri front end" },
+    { "path": "src", "why": "the front end of the Tauri app" },
+    { "path": "src-tauri", "why": "the Rust side of the Tauri app (tauri.conf.json, Cargo.toml, capabilities)" }
+  ]
+}
