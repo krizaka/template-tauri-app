@@ -26,11 +26,12 @@ jobs:
     with:
       working-directory: .
       product-name: __Name__
+    # Signing secrets only on a tag (push): the pipeline refuses a secret on a pull request (sign: false).
     secrets:
-      APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
-      APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
-      APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
-      APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
-      APPLE_API_KEY: ${{ secrets.APPLE_API_KEY }}
-      APPLE_API_KEY_P8: ${{ secrets.APPLE_API_KEY_P8 }}
-      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      APPLE_CERTIFICATE: ${{ github.event_name == 'push' && secrets.APPLE_CERTIFICATE || '' }}
+      APPLE_CERTIFICATE_PASSWORD: ${{ github.event_name == 'push' && secrets.APPLE_CERTIFICATE_PASSWORD || '' }}
+      APPLE_SIGNING_IDENTITY: ${{ github.event_name == 'push' && secrets.APPLE_SIGNING_IDENTITY || '' }}
+      APPLE_API_ISSUER: ${{ github.event_name == 'push' && secrets.APPLE_API_ISSUER || '' }}
+      APPLE_API_KEY: ${{ github.event_name == 'push' && secrets.APPLE_API_KEY || '' }}
+      APPLE_API_KEY_P8: ${{ github.event_name == 'push' && secrets.APPLE_API_KEY_P8 || '' }}
+      APPLE_TEAM_ID: ${{ github.event_name == 'push' && secrets.APPLE_TEAM_ID || '' }}
