@@ -28,3 +28,10 @@ test("the committed bundle identifier is valid for Tauri and the scaffolder repl
   const filled = JSON.parse(fill(conf, "akinaza", "Akinaza"));
   assert.equal(filled.identifier, "com.krizaka.akinaza.desktop");
 });
+
+test("the stylesheet imports a brand the tokens package exports, never a placeholder (CI was red on main)", () => {
+  const css = readFileSync(new URL("../src/styles.css", import.meta.url), "utf8");
+  const brands = [...css.matchAll(/@krizaka\/tokens\/brands\/([\w-]+)\.css/g)].map((m) => m[1]);
+  assert.ok(brands.length > 0);
+  for (const brand of brands) assert.ok(["krizaka", "scoped", "akinaza", "orazaka", "yomizaka"].includes(brand), brand);
+});
